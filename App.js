@@ -2,8 +2,7 @@ import {Home} from "./pages/Home/Home";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import {s} from "./App.style";
 import {ImageBackground} from "react-native";
-import backgroundImg from "./assets/ok.jpg";
-// import backgroundImg from "./assets/background.png";
+import backgroundImg from "./assets/background.png";
 
 export default function App() {
     return (
