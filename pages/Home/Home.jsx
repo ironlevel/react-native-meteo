@@ -1,5 +1,5 @@
 import {s} from "./Home.style";
-import Text from "react-native"
+import { Text } from "react-native"
 
 export function Home() {
     return (
