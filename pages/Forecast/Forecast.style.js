@@ -14,6 +14,9 @@ const s = StyleSheet.create({
     },
     back_btn: {
         width: 30,
+    },
+    forecastList : {
+        marginTop: 50,
     }
 })
 
