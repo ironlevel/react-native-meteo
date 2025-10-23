@@ -2,9 +2,11 @@ import {s} from "./Home.style";
 import {Text, View} from "react-native"
 import {requestForegroundPermissionsAsync, getCurrentPositionAsync} from "expo-location"
 import {useEffect, useState} from "react";
+import {MeteoAPI} from "../../api/meteo";
 
 export function Home() {
     const [coords, setCords] = useState();
+    const [weather, setWeather] = useState();
 
     useEffect(() => {
         getUserCords();
@@ -31,8 +33,8 @@ export function Home() {
     }
 
     async function fetchWeather(coordinates) {
-        // Fetch
-
+        const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(coordinates);
+        setWeather(weatherResponse);
     }
 
     return (
