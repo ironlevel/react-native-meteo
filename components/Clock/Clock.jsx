@@ -19,7 +19,6 @@ export function Clock() {
     return (
         <>
             <Txt style={s.time}>{time}</Txt>
-            {/*<Txt style={s.time}>{nowToHHMM()}</Txt>*/}
         </>
     );
 }

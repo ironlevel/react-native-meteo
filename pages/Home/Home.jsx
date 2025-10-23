@@ -6,6 +6,7 @@ import {MeteoAPI} from "../../api/meteo";
 import {Txt} from "../../components/Txt/Txt";
 import {MeteoBasic} from "../../components/MeteoBasic/MeteoBasic";
 import {getWeatherInterpretation} from "../../services/meteo-service";
+import {MeteoAdvanced} from "../../components/MeteoAdvanced/MeteoAdvanced";
 
 export function Home() {
     const [coords, setCords] = useState();
@@ -50,7 +51,6 @@ export function Home() {
         setCity(cityResponse);
     }
 
-
     return currentWeather ? (
         <>
             <View style={s.meteo_basic}>
@@ -61,7 +61,14 @@ export function Home() {
                 />
             </View>
             <View style={s.searchbar_container}/>
-            <View style={s.meteo_advanced}/>
+            <View style={s.meteo_advanced}>
+
+                <MeteoAdvanced
+                    wind={currentWeather.wind_speed_10m}
+                    dusk={weather.daily.sunrise[0].split("T")[1]}
+                    dawn={weather.daily.sunset[0].split("T")[1]}
+                />
+            </View>
         </>
     ) : null;
 }
