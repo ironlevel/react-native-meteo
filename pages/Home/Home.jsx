@@ -1,13 +1,16 @@
 import {s} from "./Home.style";
 import {Text, View} from "react-native"
 import {requestForegroundPermissionsAsync, getCurrentPositionAsync} from "expo-location"
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {MeteoAPI} from "../../api/meteo";
 import {Txt} from "../../components/Txt/Txt";
+import {MeteoBasic} from "../../components/MeteoBasic/MeteoBasic";
+import {getWeatherInterpretation} from "../../services/meteo-service";
 
 export function Home() {
     const [coords, setCords] = useState();
     const [weather, setWeather] = useState();
+    const currentWeather = weather?.current;
 
     useEffect(() => {
         getUserCords();
@@ -38,13 +41,23 @@ export function Home() {
         setWeather(weatherResponse);
     }
 
-    return (
+    console.log(coords);
+    console.log(weather);
+    console.log('15dsf1dsfdsf4');
+    console.log(currentWeather);
+
+
+    return currentWeather ? (
         <>
             <View style={s.meteo_basic}>
-                <Txt style={{ fontSize: 60 }}>Hello</Txt>
+                <MeteoBasic
+                    temperature={Math.round(currentWeather?.temperature_2m)}
+                    city="Todo"
+                    interpretation={getWeatherInterpretation(currentWeather.weather_code)}
+                />
             </View>
             <View style={s.searchbar_container}/>
             <View style={s.meteo_advanced}/>
         </>
-    );
+    ) : null;
 }
