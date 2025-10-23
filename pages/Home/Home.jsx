@@ -9,7 +9,13 @@ export function Home() {
     useEffect(() => {
         getUserCords();
     }, []);
-    
+
+    useEffect(() => {
+        if (coords) {
+            fetchWeather(coords);
+        }
+    }, [coords]);
+
     async function getUserCords() {
         let {status} = await requestForegroundPermissionsAsync();
         if (status === "granted") {
@@ -24,7 +30,10 @@ export function Home() {
         }
     }
 
-    console.log(coords);
+    async function fetchWeather(coordinates) {
+        // Fetch
+
+    }
 
     return (
         <>
