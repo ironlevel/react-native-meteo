@@ -1,7 +1,20 @@
 import {StyleSheet} from "react-native";
 
 const s = StyleSheet.create({
-
+    header: {
+        flexDirection: "row",
+    },
+    subtitle: {
+        fontSize: 20,
+    },
+    header_texts: {
+        flex: 1,
+        alignItems: "center",
+        marginRight: 30,
+    },
+    back_btn: {
+        width: 30,
+    }
 })
 
 export {s} ;
