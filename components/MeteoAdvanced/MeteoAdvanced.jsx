@@ -1,6 +1,5 @@
 import {s, StyledContainer, StyledLabel, styledLabel, StyledValue} from "./MeteoAdvanced.style";
 import {View} from "react-native";
-import {Txt} from "../Txt/Txt";
 
 export function MeteoAdvanced({dusk, dawn, wind}) {
 
